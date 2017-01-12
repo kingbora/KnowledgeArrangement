@@ -2,6 +2,7 @@
 
 ## 普通this指向
 > `this`的指向在函数定义时是无法确定的，只有函数执行时才能确定this到底指向谁，实际上this最终指向的是那个调用它的对象。
+
 ### 1、实例
 ```js
 function a() {
@@ -142,6 +143,7 @@ console.log(a.user); //kingbora
 > 语法：call([thisObj[,arg1[,arg2[,..argN]]]])
 > 定义：调用一个对象的一个方法，以另一个对象替换当前对象。
 > 说明：call方法可以用来代替另一个的对象调用一个方法。call方法可将一个函数的对象上下文从初始的上下文改变为有thisObj指定的新对象。
+
 ```js
 function add(a, b) {
 	console.log(a + b);
@@ -217,6 +219,7 @@ b.apply(null);
 
 ## bind()
 > bind方法最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。
+
 ```js
 var a = {
 	user: 'kingbora',
