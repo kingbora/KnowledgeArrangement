@@ -156,6 +156,7 @@ function sub(a, b) {
 add.call(sub, 3, 1);
 ```
 > 这个例子中的意思是用add来代替sub，`add.call(sub, 3, 1) == add(3, 1)`，所以运行结果为4。
+
 ### 实例
 ```js
 var a = {
@@ -218,7 +219,7 @@ b.apply(null);
 > 注意，如果call和apply的第一个参数写的是null，那么this指向的是window对象
 
 ## bind()
-> bind方法最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。
+> 该方法创建一个新函数，称为绑定函数，绑定函数会以创建它时传入bind方法的第一个参数作为this，传入bind方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。
 
 ```js
 var a = {
@@ -258,7 +259,7 @@ var c = b.bind(a, 10);
 c(1, 2);
 ```
 #### 总结
-call和apply都是改变上下文中的this并立即执行这个函数，bind方法可以让对应的函数想什么时候调用就什么时候调用，并且可以将参数在执行的时候添加，这是它们的区别。
+call和apply都是改变上下文中的this并立即执行这个函数，bind方法可以让对应的函数想什么时候调用就什么时候调用，并且可以将参数在执行的时候添加，这是它们的区别。bind()主要解决回调函数绑定的问题。
 
 ## 其他情况this
 ```js
@@ -266,7 +267,8 @@ kingbora.onclick = function() {
 	function fn() {
 		console.log(this); //window
 	}
-	console.log(this); //[object HTMLButtonElement]
+	console.log(this); //[object HTMLButtonElement]->kingbora
 	fn();
 }
 ```
+> 这里说明一下，为何第一个this指向的是window对象，这里普遍被认为是JavaScript语言的设计错误，因为没有人想让内部函数中的this指向全局对象。
