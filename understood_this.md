@@ -265,6 +265,11 @@ c(1, 2);
 #### 总结
 call和apply都是改变上下文中的this并立即执行这个函数，bind方法可以让对应的函数想什么时候调用就什么时候调用，并且可以将参数在执行的时候添加，这是它们的区别。bind()主要解决回调函数绑定的问题。
 
+* apply、call、bind三者都是用来改变函数的this对象的指向的。
+* apply、call、bind三者第一个参数都是this要指向的对象，也就是想指定的上下文。
+* apply、call、bind三者都可以利用后续参数传参
+* bind返回对应函数，便于稍后调用；apply、call则是立即调用。
+
 ## 其他情况this
 ```js
 kingbora.onclick = function() {
